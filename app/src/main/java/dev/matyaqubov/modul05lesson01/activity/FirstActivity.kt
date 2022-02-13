@@ -38,6 +38,7 @@ class FirstActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     private fun setupViewPager() {
         addFragment()
+
         viewpager.adapter = viewpagerAdapter
         dots.setViewPager(viewpager)
         viewpager.setOnPageChangeListener(this)
