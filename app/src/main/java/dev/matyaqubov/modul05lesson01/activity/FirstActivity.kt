@@ -28,20 +28,24 @@ class FirstActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     }
 
     private fun initViews() {
-
         viewpager = findViewById(R.id.view_pager)
         dots = findViewById(R.id.dots)
-        tv_skip = findViewById<TextView>(R.id.tv_skip)
-        button = findViewById<Button>(R.id.btn_start)
+        tv_skip = findViewById(R.id.tv_skip)
+        button = findViewById(R.id.btn_start)
+        viewpagerAdapter = ViewPagerAdapter(supportFragmentManager)
+
+        setupViewPager()
+
+    }
+
+    private fun setupViewPager() {
         addFragment()
         viewpager.adapter = viewpagerAdapter
         viewpager.setOnPageChangeListener(this)
         dots.setViewPager(viewpager)
-
     }
 
     private fun addFragment() {
-        viewpagerAdapter = ViewPagerAdapter(supportFragmentManager)
         thirdFragment = ThirdFragment()
         viewpagerAdapter.add(FirstFragment())
         viewpagerAdapter.add(SecondFragment())
